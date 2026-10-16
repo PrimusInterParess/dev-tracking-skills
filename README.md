@@ -1,8 +1,28 @@
 # dev-tracking-skills
 
+This is for my day-to-day work at LifeBonder.
+
 A Cursor skills library for following a developer's work across Slack, GitHub, and Trello: what they said, what code exists, what the ticket says done means. It keeps a folder per developer, ticks their job checklist against the pull request diff, logs every call with a date, and drafts the Slack reply for you to approve.
 
 Built from tracking Saalim on the LifeBonder admin dashboard in October 2026.
+
+## How it helps
+
+It keeps the day in one loop: what someone said, what the code actually contains, and what the ticket says done means. You stay the person who decides, merges, and publishes. The skills do the reading, the comparison, and the draft.
+
+Slack, GitHub, and Trello each tell a different story. A message that says "done" does not move a status. A pull request that GitHub calls mergeable only means there are no conflicts. The job file is the checklist, and a box gets ticked only when the diff shows that piece. Anything missing is written as one sentence: what they built, and what the card asked for.
+
+On a normal day:
+
+- Someone posts in Slack or opens a pull request. `/track-check-in` reads their folder, pulls the message, the open pull requests, and the Trello card, then compares the diff to the checklist.
+- Before it tells them what to do, it calls the pull request Merge, Hold, or Ask. You merge. A merge does not publish the site. If they ask you to deploy, that is a hold, because only you run the publish action.
+- If a standing rule already covers it — one job per branch, `LBAD-` branch names, stay inside their area, stay out of AI moderation and Reported Posts — it applies the rule and cites it. If the rule does not cover it, it stops and asks you one question at a time, with a recommended answer, then writes the call into `decisions.md`.
+- It drafts the Slack reply from that review and shows it to you. It sends only when you say send, then logs the link.
+- When every box is ticked, it marks the job done and drafts the hand-over for the next one.
+
+Each developer has a folder you can reopen: who they are, what is in progress, and a dated log that is never rewritten. `/track-weekly` summarizes a person from that folder. `/track-report` writes one document across everyone: a short cheat sheet for you before a call, or a plain version for someone else that ends with the decisions they need to make.
+
+`/track-me` points the same idea at your own work. It pulls your commits, pull requests, Slack posts, Trello cards, and the reviews you wrote, and keeps a log of what happened and a status of what is still in flight. Uncommitted work is noted as in progress. Done still needs a link.
 
 ## What is in here
 
